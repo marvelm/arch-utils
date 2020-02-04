@@ -1,6 +1,7 @@
 FROM archlinux/base
 MAINTAINER Marvel Mathew <marvel.j.mathew@gmail.com>
-RUN yes | pacman -Syuu python-pip gcc
+RUN yes | pacman -Syuu python-pip gcc gnu-netcat dnsutils
+RUN pip install kafka-tools
 #RUN pip install -U pgcli
 
-ENTRYPOINT "/bin/sh"
+ENTRYPOINT nc -l 8080
